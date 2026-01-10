@@ -47,6 +47,25 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
+
+        <Route
+          path="/parent/dashboard"
+          element={
+            <ProtectedRoute allowedRole="PARENT">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/super-admin/dashboard"
+          element={
+            <ProtectedRoute allowedRole="SUPER-ADMIN">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
