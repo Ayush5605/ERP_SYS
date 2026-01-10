@@ -7,13 +7,24 @@ function AdminDashboard() {
   return <h1>Admin Dashboard</h1>;
 }
 
+function StudentDashboard(){
+  return <h1>Student Dashboard</h1>
+}
+
 function TeacherDashboard() {
   return <h1>Teacher Dashboard</h1>;
 }
 
-function StudentDashboard() {
-  return <h1>Student Dashboard</h1>;
+function ParentDashboard() {
+  return <h1>Parent Dashboard</h1>;
 }
+
+
+function Super_Admin_Dashboard() {
+  return <h1>Super Admin Dashboard</h1>;
+}
+
+
 
 export default function App() {
   return (
@@ -53,7 +64,7 @@ export default function App() {
           path="/parent/dashboard"
           element={
             <ProtectedRoute allowedRole="PARENT">
-              <AdminDashboard />
+              <ParentDashboard />
             </ProtectedRoute>
           }
         />
@@ -62,7 +73,7 @@ export default function App() {
           path="/super-admin/dashboard"
           element={
             <ProtectedRoute allowedRole="SUPER-ADMIN">
-              <AdminDashboard />
+              <Super_Admin_Dashboard />
             </ProtectedRoute>
           }
         />
