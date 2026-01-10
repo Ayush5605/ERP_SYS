@@ -41,7 +41,7 @@ export default function Login(){
             role,
         });
 
-        navigate(`/${role.toLowerCase()}/dashboard`);
+        navigate(`/dashboard/${role.toLowerCase()}`);
 
     };
 

@@ -1,30 +1,14 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardLayout from "./layouts/DahboardLayout.jsx";
+import { ROLES } from "./constants/roles.js";
 
-function AdminDashboard() {
-  return <h1>Admin Dashboard</h1>;
-}
-
-function StudentDashboard(){
-  return <h1>Student Dashboard</h1>
-}
-
-function TeacherDashboard() {
-  return <h1>Teacher Dashboard</h1>;
-}
-
-function ParentDashboard() {
-  return <h1>Parent Dashboard</h1>;
-}
-
-
-function Super_Admin_Dashboard() {
-  return <h1>Super Admin Dashboard</h1>;
-}
-
-
+import AdminDashboard from "./pages/Dashboard/AdminDashboard.jsx";
+import TeacherDashboard from "./pages/Dashboard/TeacherDashboard.jsx";
+import StudentDashboard from "./pages/Dashboard/StudentDashboard.jsx";
+import ParentDashboard from "./pages/Dashboard/ParentDashboard.jsx";
+import SuperAdminDashboard from "./pages/Dashboard/SuperAdminDashboard.jsx";
 
 export default function App() {
   return (
@@ -32,51 +16,55 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute allowedRole="ADMIN">
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
+        {/* DASHBOARD LAYOUT */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
 
-        <Route
-          path="/teacher/dashboard"
-          element={
-            <ProtectedRoute allowedRole="TEACHER">
-              <TeacherDashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="admin"
+            element={
+              <ProtectedRoute allowedRole={ROLES.ADMIN}>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/student/dashboard"
-          element={
-            <ProtectedRoute allowedRole="STUDENT">
-              <StudentDashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="teacher"
+            element={
+              <ProtectedRoute allowedRole={ROLES.TEACHER}>
+                <TeacherDashboard />
+              </ProtectedRoute>
+            }
+          />
 
+          <Route
+            path="student"
+            element={
+              <ProtectedRoute allowedRole={ROLES.STUDENT}>
+                <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/parent/dashboard"
-          element={
-            <ProtectedRoute allowedRole="PARENT">
-              <ParentDashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="parent"
+            element={
+              <ProtectedRoute allowedRole={ROLES.PARENT}>
+                <ParentDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/super-admin/dashboard"
-          element={
-            <ProtectedRoute allowedRole="SUPER-ADMIN">
-              <Super_Admin_Dashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="super-admin"
+            element={
+              <ProtectedRoute allowedRole={ROLES.SUPER_ADMIN}>
+                <SuperAdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+        </Route>
       </Routes>
     </BrowserRouter>
   );
