@@ -41,7 +41,12 @@ export default function Login(){
             role,
         });
 
+        if(role=="STUDENT" || role=="PARENT"){
+          navigate("/dashboard");
+        }else{
+
         navigate(`/dashboard/${role.toLowerCase()}`);
+        }
 
     };
 

@@ -9,6 +9,7 @@ import TeacherDashboard from "./pages/Dashboard/TeacherDashboard.jsx";
 import StudentDashboard from "./pages/Dashboard/StudentDashboard.jsx";
 import ParentDashboard from "./pages/Dashboard/ParentDashboard.jsx";
 import SuperAdminDashboard from "./pages/Dashboard/SuperAdminDashboard.jsx";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
 
         {/* DASHBOARD LAYOUT */}
         <Route path="/dashboard" element={<DashboardLayout />}>
+                <Route index element={<Dashboard/>}/>
+
 
           <Route
             path="admin"
@@ -37,24 +40,7 @@ export default function App() {
             }
           />
 
-          <Route
-            path="student"
-            element={
-              <ProtectedRoute allowedRole={ROLES.STUDENT}>
-                <StudentDashboard />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="parent"
-            element={
-              <ProtectedRoute allowedRole={ROLES.PARENT}>
-                <ParentDashboard />
-              </ProtectedRoute>
-            }
-          />
-
+          
           <Route
             path="super-admin"
             element={
@@ -65,6 +51,7 @@ export default function App() {
           />
 
         </Route>
+
       </Routes>
     </BrowserRouter>
   );

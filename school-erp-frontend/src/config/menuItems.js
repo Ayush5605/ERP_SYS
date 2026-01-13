@@ -26,11 +26,13 @@ export const menuItems = [
     roles: [
       ROLES.SUPER_ADMIN,
       ROLES.ADMIN,
-      ROLES.TEACHER
+      ROLES.TEACHER,
+      ROLES.STUDENT,
+      ROLES.PARENT
     ]
   },
 
-  // 🔐 SUPER ADMIN ONLY
+
   {
     id: "super-admin",
     label: "Super Admin",

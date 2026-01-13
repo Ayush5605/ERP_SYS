@@ -1,4 +1,3 @@
-// components/dashboard/CardShell.jsx
 import { Card, CardHeader, CardTitle, CardContent } from "../../components/ui/card";
 
 export default function CardShell({ title, icon: Icon, children }) {
