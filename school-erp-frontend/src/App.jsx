@@ -31,14 +31,7 @@ export default function App() {
             }
           />
 
-          <Route
-            path="teacher"
-            element={
-              <ProtectedRoute allowedRole={ROLES.TEACHER}>
-                <TeacherDashboard />
-              </ProtectedRoute>
-            }
-          />
+          
 
           
           <Route

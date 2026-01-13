@@ -5,6 +5,8 @@ import AdminDashboard from "./Dashboard/AdminDashboard.jsx";
 
 import { dashboardMock } from "../data/dashboardMock.js";
 import { useUser } from "../context/UserContext.jsx";
+import TeacherDashboard from "./Dashboard/TeacherDashboard.jsx";
+import { teacherDashboardMock } from "../data/teacherDashboardMock.js";
 
 export default function Dashboard() {
   const { user } = useUser(); 
@@ -22,7 +24,8 @@ export default function Dashboard() {
     case "PARENT":
       return <ParentDashboard data={dashboardMock} />;
 
-    
+    case "TEACHER":
+        return<TeacherDashboard data={teacherDashboardMock}/>
 
     default:
       return <p>Unauthorized</p>;
