@@ -7,6 +7,10 @@ import { ROLES } from "../../constants/roles.js";
 export function TopNavbar() {
   const { user } = useUser();
 
+  if(!user){
+    return null;
+  }
+
   const canShowSearch = [
     ROLES.ADMIN,
     ROLES.TEACHER,

@@ -7,9 +7,18 @@ import { dashboardMock } from "../data/dashboardMock.js";
 import { useUser } from "../context/UserContext.jsx";
 import TeacherDashboard from "./Dashboard/TeacherDashboard.jsx";
 import { teacherDashboardMock } from "../data/teacherDashboardMock.js";
+import { Navigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const { user } = useUser(); 
+  const { user,loading } = useUser(); 
+
+  if(loading){
+    return <div>loading...</div>
+  }
+
+  if(!user){
+    return <Navigate to="/login"/>;
+  }
 
   console.log(user);
 

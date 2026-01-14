@@ -6,6 +6,10 @@ import { cn } from "../../lib/utils.js";
 export function Sidebar({ activeItem = "dashboard", onItemClick }) {
   const { user } = useUser();
 
+  if(!user){
+    return null;
+  }
+
   const filteredMenu = menuItems.filter((item) =>
     item.roles.includes(user.role)
   );
