@@ -16,18 +16,19 @@ export function IncomeExpenseChart() {
       <CardHeader>
         <CardTitle>Income vs Expense</CardTitle>
       </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
+
+      <CardContent className="h-[320px]">
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="month" tick={{ fill: '#6B7280', fontSize: 12 }} />
             <YAxis tick={{ fill: '#6B7280', fontSize: 12 }} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: '#fff', 
+            <Tooltip
+              contentStyle={{
+                backgroundColor: '#fff',
                 border: '1px solid #e5e7eb',
                 borderRadius: '8px',
-                fontSize: '12px'
+                fontSize: '12px',
               }}
             />
             <Legend wrapperStyle={{ fontSize: '12px' }} />

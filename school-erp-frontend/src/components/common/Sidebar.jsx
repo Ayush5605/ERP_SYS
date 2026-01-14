@@ -11,8 +11,10 @@ export function Sidebar({ activeItem = "dashboard", onItemClick }) {
   );
 
   return (
-    <aside className="w-64 bg-white border-r h-screen">
-      <div className="p-6 border-b">
+    <aside className="w-64 bg-white border-r h-screen flex flex-col">
+      
+      {/* HEADER (fixed) */}
+      <div className="p-6 border-b flex-shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
             <GraduationCap className="text-white" />
@@ -26,7 +28,8 @@ export function Sidebar({ activeItem = "dashboard", onItemClick }) {
         </div>
       </div>
 
-      <nav className="p-4">
+      {/* SCROLLABLE NAV */}
+      <nav className="flex-1 overflow-y-auto p-4">
         <ul className="space-y-1">
           {filteredMenu.map((item) => {
             const Icon = item.icon;
@@ -51,6 +54,7 @@ export function Sidebar({ activeItem = "dashboard", onItemClick }) {
           })}
         </ul>
       </nav>
+
     </aside>
   );
 }

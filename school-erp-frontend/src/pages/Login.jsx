@@ -36,10 +36,14 @@ export default function Login(){
             return;
         }
 
-        setUser({
+        const userData=({
             name:email.split("@")[0],
             role,
         });
+
+        localStorage.setItem("user",JSON.stringify(userData));
+
+        setUser(userData);
 
         
           navigate("/dashboard");
