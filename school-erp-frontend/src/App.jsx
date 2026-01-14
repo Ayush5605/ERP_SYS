@@ -11,41 +11,23 @@ import ParentDashboard from "./pages/Dashboard/ParentDashboard.jsx";
 import SuperAdminDashboard from "./pages/Dashboard/SuperAdminDashboard.jsx";
 import Dashboard from "./pages/Dashboard";
 
+import { UserProvider } from "./context/UserContext.jsx"; // ✅ ADD THIS
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
+    <UserProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
 
-        {/* DASHBOARD LAYOUT */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-                <Route index element={<Dashboard/>}/>
+          {/* DASHBOARD LAYOUT */}
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<Dashboard />} />
 
-
-          <Route
-            path="admin"
-            element={
-              <ProtectedRoute allowedRole={ROLES.ADMIN}>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-
-          
-
-          
-          <Route
-            path="super-admin"
-            element={
-              <ProtectedRoute allowedRole={ROLES.SUPER_ADMIN}>
-                <SuperAdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-
-        </Route>
-
-      </Routes>
-    </BrowserRouter>
+           
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   );
 }

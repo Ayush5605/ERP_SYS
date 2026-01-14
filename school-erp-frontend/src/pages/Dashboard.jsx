@@ -27,6 +27,12 @@ export default function Dashboard() {
     case "TEACHER":
         return<TeacherDashboard data={teacherDashboardMock}/>
 
+      case "ADMIN":
+        return<AdminDashboard/>
+
+      case "SUPER-ADMIN":
+        return <AdminDashboard/>
+
     default:
       return <p>Unauthorized</p>;
   }

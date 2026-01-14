@@ -3,6 +3,7 @@ import AttendanceCard from "../../layouts/cards/AttendanceCard";
 import AssignmentCard from "../../layouts/cards/AssignmentCard";
 import ExamCard from "../../layouts/cards/ExamCard";
 import NoticeCard from "../../layouts/cards/NoticeCard";
+import AttendanceChartCard from "../../layouts/cards/AttendanceChartCard.jsx";
 
 export default function TeacherDashboard({ data }) {
   if (!data) return null;
@@ -13,6 +14,7 @@ export default function TeacherDashboard({ data }) {
       <AttendanceCard attendance={data.attendance} />
       <AssignmentCard assignments={data.assignments} />
       <ExamCard exams={data.exams} />
+      {/* <AttendanceChartCard data={data.weeklyAttendance} /> */}
       <NoticeCard notices={data.notices} />
     </div>
   );
