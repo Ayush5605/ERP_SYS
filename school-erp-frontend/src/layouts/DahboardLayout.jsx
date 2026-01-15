@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/common/Sidebar.jsx";
 import { TopNavbar } from "../components/common/TopNavbar.jsx";
 
 export default function DashboardLayout() {
-  const [activeItem, setActiveItem] = useState("dashboard");
   const navigate = useNavigate();
+  const location=useLocation();
+
+  const activeItem=location.pathname
+  .replace("/dashboard/","")
+  .replace("/super-admin/","super-admin/")
 
   const handleSidebarClick = (item) => {
-    setActiveItem(item);
-    navigate(`/dashboard/${item}`);
+    
+    navigate(`/${item}`);
   };
 
   return (
