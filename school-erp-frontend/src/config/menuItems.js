@@ -37,7 +37,45 @@ export const menuItems = [
     id: "super-admin",
     label: "Super Admin",
     icon: ShieldCheck,
-    roles: [ROLES.SUPER_ADMIN]
+    roles: [ROLES.SUPER_ADMIN],
+    children:[
+      {
+      id: "sa-dashboard",
+      label: "Overview",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "schools",
+      label: "Schools",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "subscriptions",
+      label: "Subscriptions",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "school-admins",
+      label: "School Admins",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "security",
+      label: "Security & Access",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "audit-logs",
+      label: "Audit Logs",
+      roles: [ROLES.SUPER_ADMIN]
+    },
+    {
+      id: "platform-settings",
+      label: "Platform Settings",
+      roles: [ROLES.SUPER_ADMIN]
+    }
+
+   ]
   },
 
   {
@@ -45,7 +83,7 @@ export const menuItems = [
     label: "Students",
     icon: Users,
     roles: [
-      ROLES.SUPER_ADMIN,
+      
       ROLES.ADMIN,
       ROLES.TEACHER
     ]
@@ -66,7 +104,7 @@ export const menuItems = [
     label: "Academics",
     icon: BookOpen,
     roles: [
-      ROLES.SUPER_ADMIN,
+      
       ROLES.ADMIN,
       ROLES.TEACHER,
       ROLES.STUDENT,
@@ -79,7 +117,7 @@ export const menuItems = [
     label: "Attendance",
     icon: Calendar,
     roles: [
-      ROLES.SUPER_ADMIN,
+      
       ROLES.ADMIN,
       ROLES.TEACHER,
       ROLES.STUDENT,
@@ -92,7 +130,7 @@ export const menuItems = [
     label: "Homework",
     icon: FileText,
     roles: [
-      ROLES.SUPER_ADMIN,
+      
       ROLES.ADMIN,
       ROLES.TEACHER,
       ROLES.STUDENT,
@@ -177,7 +215,9 @@ export const menuItems = [
     ]
   },
 
-  {
+  
+  
+{
     id: "settings",
     label: "Settings",
     icon: Settings,
@@ -186,4 +226,5 @@ export const menuItems = [
       ROLES.ADMIN
     ]
   }
+
 ];

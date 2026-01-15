@@ -2,6 +2,7 @@
 import StudentDashboard from "./Dashboard/StudentDashboard.jsx";
 import ParentDashboard from "./Dashboard/ParentDashboard.jsx";
 import AdminDashboard from "./Dashboard/AdminDashboard.jsx";
+import SuperAdminDashboard from "./Dashboard/SuperAdminDashboard.jsx";
 
 import { dashboardMock } from "../data/dashboardMock.js";
 import { useUser } from "../context/UserContext.jsx";
@@ -40,7 +41,7 @@ export default function Dashboard() {
         return<AdminDashboard/>
 
       case "SUPER-ADMIN":
-        return <AdminDashboard/>
+        return <SuperAdminDashboard/>
 
     default:
       return <p>Unauthorized</p>;
