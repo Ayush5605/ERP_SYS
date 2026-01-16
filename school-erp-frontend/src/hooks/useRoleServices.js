@@ -2,7 +2,8 @@ import { useUser } from "../context/UserContext";
 
 // Academics
 import * as studentAcademics from "../services/Students/academics.service.js";
-// import * as teacherAcademics from "../services/teacher/academics.service";
+import * as teacherAcademics from "../services/Teachers/academics.service.js";
+import * as parentAcademics from "../services/Parents/academics.service.js";
 // import * as adminAcademics from "../services/admin/academics.service";
 
 // Attendance
@@ -17,11 +18,19 @@ import * as studentHomework from "../services/Students/homework.service.js";
 
 export const useAcademicsService = () => {
   const { user } = useUser();
-  return user.role === "STUDENT"
-    ? studentAcademics
-    : user.role === "TEACHER"
-    ? teacherAcademics
-    : adminAcademics;
+  
+  if(!user?.role) return studentAcademics;
+
+  switch(user.role){
+    case "STUDENT":
+        return studentAcademics;
+    
+    case "TEACHER":
+        return teacherAcademics;
+
+    case "PARENT":
+        return parentAcademics
+  }
 };
 
 export const useAttendanceService = () => {
