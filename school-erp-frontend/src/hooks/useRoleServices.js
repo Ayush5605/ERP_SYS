@@ -1,52 +1,67 @@
 import { useUser } from "../context/UserContext";
 
-// Academics
+// ===== Academics =====
 import * as studentAcademics from "../services/Students/academics.service.js";
 import * as teacherAcademics from "../services/Teachers/academics.service.js";
 import * as parentAcademics from "../services/Parents/academics.service.js";
-// import * as adminAcademics from "../services/admin/academics.service";
+import * as adminAcademics from "../services/Admin/academics.service.js";
 
-// Attendance
+// ===== Attendance =====
 import * as studentAttendance from "../services/Students/attendance.service.js";
-// import * as teacherAttendance from "../services/teacher/attendance.service";
-// import * as adminAttendance from "../services/admin/attendance.service";
 
-// Homework
+// ===== Homework =====
 import * as studentHomework from "../services/Students/homework.service.js";
-// import * as teacherHomework from "../services/teacher/homework.service";
-// import * as adminHomework from "../services/admin/homework.service";
 
+// -----------------------------------
+// Academics
+// -----------------------------------
 export const useAcademicsService = () => {
   const { user } = useUser();
-  
-  if(!user?.role) return studentAcademics;
 
-  switch(user.role){
+  if (!user?.role) return studentAcademics;
+
+  switch (user.role) {
     case "STUDENT":
-        return studentAcademics;
-    
+      return studentAcademics;
     case "TEACHER":
-        return teacherAcademics;
-
+      return teacherAcademics;
     case "PARENT":
-        return parentAcademics
+      return parentAcademics;
+    case "ADMIN":
+      return adminAcademics;
+    default:
+      return studentAcademics;
   }
 };
 
+// -----------------------------------
+// Attendance
+// -----------------------------------
 export const useAttendanceService = () => {
   const { user } = useUser();
-  return user.role === "STUDENT"
-    ? studentAttendance
-    : user.role === "TEACHER"
-    ? teacherAttendance
-    : adminAttendance;
+
+  if (!user?.role) return studentAttendance;
+
+  switch (user.role) {
+    case "STUDENT":
+      return studentAttendance;
+    default:
+      return studentAttendance; // teacher/admin later
+  }
 };
 
+// -----------------------------------
+// Homework
+// -----------------------------------
 export const useHomeworkService = () => {
   const { user } = useUser();
-  return user.role === "STUDENT"
-    ? studentHomework
-    : user.role === "TEACHER"
-    ? teacherHomework
-    : adminHomework;
+
+  if (!user?.role) return studentHomework;
+
+  switch (user.role) {
+    case "STUDENT":
+      return studentHomework;
+    default:
+      return studentHomework; // teacher/admin later
+  }
 };
