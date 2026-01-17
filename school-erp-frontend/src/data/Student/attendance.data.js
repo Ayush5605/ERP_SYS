@@ -1,29 +1,62 @@
-export const summary = {
-  totalDays: 130,
-  presentDays: 120,
-  absentDays: 10,
-  percentage: 92,
-};
 
-export const monthly = [
+
+export const attendanceData = [
   {
-    date: "2025-01-01",
+    id: "A001",
+    studentId: "S1",
+    studentName: "Rahul Sharma",
+    date: "2026-01-02",
     status: "Present",
   },
   {
-    date: "2025-01-02",
+    id: "A002",
+    studentId: "S1",
+    studentName: "Rahul Sharma",
+    date: "2026-01-03",
     status: "Present",
   },
   {
-    date: "2025-01-03",
+    id: "A003",
+    studentId: "S1",
+    studentName: "Rahul Sharma",
+    date: "2026-01-04",
     status: "Absent",
   },
   {
-    date: "2025-01-04",
+    id: "A004",
+    studentId: "S1",
+    studentName: "Rahul Sharma",
+    date: "2026-01-05",
     status: "Present",
   },
   {
-    date: "2025-01-05",
+    id: "A005",
+    studentId: "S1",
+    studentName: "Rahul Sharma",
+    date: "2026-01-06",
+    status: "Absent",
+  },
+
+  // Another student (for teacher / admin views)
+  {
+    id: "A006",
+    studentId: "S2",
+    studentName: "Priya Patil",
+    date: "2026-01-02",
+    status: "Present",
+  },
+  {
+    id: "A007",
+    studentId: "S2",
+    studentName: "Priya Patil",
+    date: "2026-01-03",
+    status: "Absent",
+  },
+  {
+    id: "A008",
+    studentId: "S2",
+    studentName: "Priya Patil",
+    date: "2026-01-04",
     status: "Present",
   },
 ];

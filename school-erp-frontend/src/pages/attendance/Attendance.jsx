@@ -1,8 +1,21 @@
+import { useUser } from "../../context/UserContext.jsx";
+import StudenAttendance from "./StudentAttendance.jsx";
+// import ParentAttendance from "./ParentAttendance.jsx";
+// import TeacherAttendance from "./TeacherAttendance.jsx";
+import { ROLES } from "../../constants/roles.js";
+
+
+
+
 export default function Students() {
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold">Attendance</h1>
-      <p className="text-gray-500">Manage Attendance records here.</p>
-    </div>
-  );
+
+  const {user}=useUser();
+
+  if(user.role===ROLES.STUDENT) return <StudenAttendance/>;
+
+  // if(user.role=== ROLES.PARENT) return <ParentAttendance/>;
+
+  // if(user.role=== ROLES.TEACHER) return <TeacherAttendance/>;
+
+  
 }
