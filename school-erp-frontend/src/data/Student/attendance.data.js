@@ -37,7 +37,7 @@ export const attendanceData = [
     status: "Absent",
   },
 
-  // Another student (for teacher / admin views)
+  
   {
     id: "A006",
     studentId: "S2",
