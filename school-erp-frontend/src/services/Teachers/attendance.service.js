@@ -37,3 +37,22 @@ export function lockAttendance(attendance) {
     isLocked: true,
   };
 }
+
+
+
+export function markAttendanceByRolls(attendance, presentRollsInput) {
+  
+  const presentRolls = presentRollsInput
+    .split(",")
+    .map(r => Number(r.trim()))
+    .filter(Boolean);
+
+  return {
+    ...attendance,
+    students: attendance.students.map(student => ({
+      ...student,
+      status: presentRolls.includes(student.rollNo) ? "P" : "A",
+    })),
+  };
+}
+

@@ -5,7 +5,9 @@ import {
   createTodayAttendance,
   toggleAttendance,
   lockAttendance,
+  markAttendanceByRolls
 } from "../../services/Teachers/attendance.service.js";
+
 
 export default function TeacherAttendancePage() {
   
@@ -31,6 +33,7 @@ export default function TeacherAttendancePage() {
   );
 
   const[isHover,setIsHover]=useState(false);
+  const [presentRolls,setPresentRolls]=useState("");
 
   const handleToggle = (studentId) => {
     setAttendance((prev) => toggleAttendance(prev, studentId));
@@ -50,6 +53,46 @@ export default function TeacherAttendancePage() {
         <strong>Class:</strong> {classId} <br />
         <strong>Date:</strong> {attendance.date}
       </p>
+
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ fontWeight: "bold" }}>
+            Enter Present Roll Numbers (comma separated):
+        </label>
+        <br />
+        <input
+             type="text"
+             value={presentRolls}
+             placeholder="e.g. 1,4,5"
+             onChange={(e) => setPresentRolls(e.target.value)}
+             style={{
+             marginTop: 6,
+             padding: "8px",
+             width: "300px",
+             borderRadius: "4px",
+              border: "1px solid #ccc",
+             }}
+        />
+
+             <button
+              onClick={() => {
+              setAttendance((prev) =>
+              markAttendanceByRolls(prev, presentRolls)
+              );
+              }}
+             style={{
+             padding: "8px 14px",
+             border: "1px solid green",
+             borderRadius: "5px",
+             backgroundColor: "white",
+             color: "green",
+             cursor: "pointer",
+             marginBottom: 16,
+             marginRight:"25px",
+             }}
+             >
+             Submit
+            </button>
+        </div>
 
       <table
         border="1"
