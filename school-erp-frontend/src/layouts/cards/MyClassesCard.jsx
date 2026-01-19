@@ -1,10 +1,12 @@
 // layouts/cards/MyClassesCard.jsx
 import { BookOpen, Clock } from "lucide-react";
 import CardShell from "./CardShell.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function MyClassesCard({ classes = [] }) {
+  const navigate=useNavigate();
   return (
-    <CardShell title="My Classes Today" icon={BookOpen}>
+    <CardShell title="My Classes Today" icon={BookOpen} >
       {classes.length === 0 ? (
         <p className="text-gray-500">No classes scheduled</p>
       ) : (
@@ -24,9 +26,18 @@ export default function MyClassesCard({ classes = [] }) {
               <Clock size={14} />
               <span>{c.time}</span>
             </div>
+           
           </div>
         ))
       )}
+       <button 
+       style={{
+        color:"blue",
+        textDecoration:"underline"
+       }}
+       onClick={()=>navigate("/academics")}>
+              view
+        </button>
     </CardShell>
   );
 }

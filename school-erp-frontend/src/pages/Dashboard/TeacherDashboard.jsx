@@ -12,6 +12,7 @@ export default function TeacherDashboard({ data }) {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <MyClassesCard classes={data.classes} />
       <AttendanceCard attendance={data.attendance} />
+
       <AssignmentCard assignments={data.assignments} />
       <ExamCard exams={data.exams} />
       {/* <AttendanceChartCard data={data.weeklyAttendance} /> */}

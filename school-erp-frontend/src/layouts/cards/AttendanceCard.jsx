@@ -1,8 +1,10 @@
 // layouts/cards/AttendanceCard.jsx
 import { CalendarCheck } from "lucide-react";
 import CardShell from "./CardShell.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function AttendanceCard({ attendance }) {
+  const navigate=useNavigate();
   const status = attendance?.today || "Not Available";
 
   const statusColor =
@@ -22,7 +24,7 @@ export default function AttendanceCard({ attendance }) {
 
         <button
           className="rounded-lg bg-blue-600 px-4 py-1.5 text-sm text-white hover:bg-blue-700 transition"
-        >
+         onClick={()=>navigate("/attendance")}>
           Mark
         </button>
       </div>
